@@ -1,0 +1,75 @@
+# Class to store and handle personal details of a student
+class StudentDetails:
+    def __init__(self, name, student_id, programme):
+        self.name = name
+        self.student_id = student_id
+        self.programme = programme  # Store the programme info
+
+    def student_info(self):
+        return f"Student ID: {self.student_id}\nName: {self.name}\nProgramme: {self.programme}"
+
+
+# Class to handle academic details like marks and grades
+class Student:
+    def __init__(self, student_details):
+        self.student_details = student_details  # Composition: Student has a StudentDetails object
+        self.marks = {}
+
+    def add_marks(self, subject, marks):
+        self.marks[subject] = marks
+        # Removed the print statement here
+
+    def calculate_grade(self):
+        total_marks = sum(self.marks.values())
+        num_subjects = len(self.marks)
+
+        if num_subjects == 0:
+            return "No marks available"
+        
+        percentage = total_marks / num_subjects
+        if percentage >= 75:
+            return "A"
+        elif percentage >= 60:
+            return "B"
+        elif percentage >= 50:
+            return "C"
+        elif percentage >= 40:
+            return "D"
+        else:
+            return "F"
+
+    def student_info(self):
+        # Get student's personal details from the StudentDetails object
+        personal_info = self.student_details.student_info()
+        # Add academic details like marks and grade
+        return f"{personal_info}\nMarks: {self.marks}\nGrade: {self.calculate_grade()}"
+
+
+# Main function to gather input and create student instances
+def main():
+    # Collect Student Details
+    print("Enter Student Details:")
+    name = input("Enter Name: ")
+    student_id = input("Enter Student ID: ")
+    programme = input("Enter Programme (UG/PG): ")  # Ask user for programme (UG or PG)
+    
+    student_details = StudentDetails(name, student_id, programme)
+    
+    # Create Student instance for academic details
+    student = Student(student_details)
+    
+    # Get marks for the student
+    num_courses = int(input("How many courses' marks should be entered?: "))
+    for i in range(1, num_courses + 1):
+        marks = float(input(f"Enter the course {i} mark: "))  # Prompt for each course mark
+        subject = f"Course {i}"  # Automatically name the subject as "Course X"
+        student.add_marks(subject, marks)
+    
+    # Display student information
+    print("\nStudent Academic Information")
+    print("----------------------------")
+    print(student.student_info())  # Display complete student info
+
+
+if __name__ == "__main__":
+    main()
