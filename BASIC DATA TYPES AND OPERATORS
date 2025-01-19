@@ -1,0 +1,63 @@
+num1 = int(input("Enter an integer: "))
+num2 = float(input("Enter a float: "))
+str1 = input("Enter the first string: ")
+str2 = input("Enter the second string: ")
+my_list = [num1, num2, str1, str2]
+my_tuple = (num1, num2)
+my_set = {num1, num2}
+my_dict = {
+    'integer': num1,
+    'float': num2,
+    'first_string': str1,
+    'second_string': str2
+}
+bool1 = True
+bool2 = False
+sum_result = num1 + num2
+difference = num1 - num2
+product = num1 * num2
+quotient = num1 / num2 if num2 != 0 else "undefined (cannot divide by zero)"
+remainder = num1 % num2
+exponentiation = num1 ** 2
+floor_division = num1 // 2
+is_equal = num1 == num2
+is_not_equal = num1 != num2
+is_greater = num1 > num2
+is_less_or_equal = num1 <= num2
+logical_and = bool1 and bool2
+logical_or = bool1 or bool2
+logical_not = not bool1
+bitwise_and = num1 & 1
+bitwise_or = num1 | 1
+bitwise_xor = num1 ^ 1
+is_in_list = num1 in my_list
+is_in_dict = 'integer' in my_dict
+print(f"\nArithmetic Results:")
+print(f"Sum: {sum_result}")
+print(f"Difference: {difference}")
+print(f"Product: {product}")
+print(f"Quotient: {quotient}")
+print(f"Remainder: {remainder}")
+print(f"{num1} raised to the power of 2: {exponentiation}")
+print(f"Floor division of {num1} by 2: {floor_division}")
+print(f"\nComparison Results:")
+print(f"Is {num1} equal to {num2}? : {is_equal}")
+print(f"Is {num1} not equal to {num2}? : {is_not_equal}")
+print(f"Is {num1} greater than {num2}? : {is_greater}")
+print(f"Is {num1} less than or equal to {num2}? : {is_less_or_equal}")
+print(f"\nLogical Results:")
+print(f"{bool1} AND {bool2} : {logical_and}")
+print(f"{bool1} OR {bool2} : {logical_or}")
+print(f"NOT {bool1} : {logical_not}")
+print(f"\nBitwise Results:")
+print(f"{num1} AND 1: {bitwise_and}")
+print(f"{num1} OR 1: {bitwise_or}")
+print(f"{num1} XOR 1: {bitwise_xor}")
+print(f"\nMembership Results:")
+print(f"Is {num1} in the list? : {is_in_list}")
+print(f"Is 'integer' a key in the dictionary? : {is_in_dict}")
+print(f"\nData Structures:")
+print(f"List: {my_list}")
+print(f"Tuple: {my_tuple}")
+print(f"Set: {my_set}")
+print(f"Dictionary: {my_dict}")
