@@ -1,0 +1,44 @@
+numbers = input("Enter values for List separated by commas (e.g., 1,2): ")
+numbers_list = [int(num) for num in numbers.split(',')]
+sum_of_numbers = sum(numbers_list)
+student_name = input("\nEnter student's name: ")
+student_age = int(input("Enter student's age: "))
+student_major = input("Enter student's major: ")
+student_info = (student_name, student_age, student_major)
+set1_values = input("\nEnter values for Set 1 separated by commas: ")
+set1 = {int(x) for x in set1_values.split(',')}
+set2_values = input("Enter values for Set 2 separated by commas: ")
+set2 = {int(x) for x in set2_values.split(',')}
+intersection = set1.intersection(set2)
+union = set1.union(set2)
+contact_info = {}
+num_contacts = int(input("\nHow many contacts do you want to add? "))
+for _ in range(num_contacts):
+    name = input("Enter name: ")
+    email = input("Enter email: ")
+    contact_info[name] = email
+print("\n--- Results ---")
+print("\nList\n")
+print("numbers_list =", numbers_list)
+print("Sum of numbers:", sum_of_numbers)
+print("\nTuple\n")
+print("student_info =", student_info)
+print("Name:", student_info[0])
+print("Age:", student_info[1])
+print("Major:", student_info[2])
+print("\nSet\n")
+print("Set 1 =", set1)
+print("Set 2 =", set2)
+print("Intersection:", intersection)
+print("Union:", union)
+print("\nDictionary\n")
+print("Contact Information =",contact_info)  # Display the dictionary as is
+for name, email in contact_info.items():
+    print("Key =", name)   # Print key
+    print("Value =", email)  # Print value
+name_to_lookup = input("\nEnter a name to look up their email: ")
+if name_to_lookup in contact_info:
+    email = contact_info[name_to_lookup]
+    print(f"{name_to_lookup}'s email is {email}")
+else:
+    print(f"{name_to_lookup} is not in the contact list.")
