@@ -1,0 +1,43 @@
+import math
+print("\nAvailable operations:")
+print("1. Addition (+)")
+print("2. Subtraction (-)")
+print("3. Multiplication (*)")
+print("4. Division (/)")
+print("5. Square Root (√)")
+print("6. Exponentiation (x^y or exp)")
+print("7. Sine (sin) in radians")
+print("8. Cosine (cos) in radians")
+print("9. Tangent (tan) in radians")
+print("10. Logarithm (log base 10)")
+operation = int(input("\nChoose an operation (1-10): "))
+if operation in [1, 2, 3, 4, 6]:
+    num1 = float(input("\nEnter the first number: "))
+    num2 = float(input("Enter the second number: "))
+elif operation in [5, 7, 8, 9, 10]:
+    num1 = float(input("Enter the number: "))
+else:
+    print("\nInvalid operation! Please choose a valid option.")
+    exit()
+if operation == 1:  # Addition
+    result = num1 + num2
+elif operation == 2:  # Subtraction
+    result = num1 - num2
+elif operation == 3:  # Multiplication
+    result = num1 * num2
+elif operation == 4:  # Division
+    result = num1 / num2 if num2 != 0 else "undefined (cannot divide by zero)"
+elif operation == 5:  # Square Root
+    result = math.sqrt(num1) if num1 >= 0 else "undefined (negative number)"
+elif operation == 6:  # Exponentiation (x^y or exp)
+    result = math.pow(num1, num2)  # Raises num1 to the power of num2
+elif operation == 7:  # Sine
+    result = math.sin(math.radians(num1))  # Convert degrees to radians before calculating
+elif operation == 8:  # Cosine
+    result = math.cos(math.radians(num1))  # Convert degrees to radians before calculating
+elif operation == 9:  # Tangent
+    result = math.tan(math.radians(num1))  # Convert degrees to radians before calculating
+elif operation == 10:  # Logarithm (base 10)
+    result = math.log10(num1) if num1 > 0 else "undefined (non-positive number)"
+print(f"\nResult: {result}")
+print("\nCalculator program ended.")
