@@ -1,0 +1,73 @@
+def calculate_bill(category, units):
+    if category == "Domestic":
+        if units <= 400:
+            rate = 4.60
+        elif units <= 500:
+            rate = 6.15
+        elif units <= 600:
+            rate = 8.15
+        elif units <= 800:
+            rate = 9.20
+        elif units <= 1000:
+            rate = 10.20
+        else:
+            rate = 11.25
+    elif category == "Industrial":
+        if units <= 400:
+            rate = 5.50
+        elif units <= 500:
+            rate = 7.00
+        elif units <= 600:
+            rate = 8.50
+        elif units <= 800:
+            rate = 9.80
+        elif units <= 1000:
+            rate = 10.50
+        else:
+            rate = 11.75
+    elif category == "Bulk Supply":
+        if units <= 400:
+            rate = 8.15
+        elif units <= 500:
+            rate = 9.00
+        elif units <= 600:
+            rate = 10.00
+        elif units <= 800:
+            rate = 11.00
+        elif units <= 1000:
+            rate = 12.00
+        else:
+            rate = 13.50
+    else:
+        return "Invalid consumer category."
+    total_bill = units * rate
+    return total_bill
+while True:
+    print("Select your consumer category:")
+    print("1. Domestic")
+    print("2. Industrial")
+    print("3. Bulk Supply")
+    choice = input("Enter the number corresponding to your category (1/2/3): ")
+    if choice == '1':
+        category = "Domestic"
+    elif choice == '2':
+        category = "Industrial"
+    elif choice == '3':
+        category = "Bulk Supply"
+    else:
+        print("Invalid choice. Please select again.")
+        continue
+    try:
+        units = float(input("Enter the number of Units consumed: "))
+        if units < 0:
+            print("Please enter a non-negative number.")
+            continue
+        total_bill = calculate_bill(category, units)
+        if isinstance(total_bill, str):
+            print(total_bill)  # Print error message if invalid
+        else:
+            print(f"Your total electricity bill: Rs. {total_bill:.2f}")
+    except ValueError:
+        print("Invalid input. Please enter a numeric value for kWh.")
+    if input("Do you want to calculate another bill? (yes/no): ").lower() != 'yes':
+        break
